@@ -33,11 +33,12 @@
 <body>
     
     <div id="root">
-        <ul>
+        <ul v-if="emailList.length === 10">
             <li v-for="(email, i) in emailList">
                 {{email}}
             </li>
         </ul>
+        <div v-else>Loading...</div>
     </div>
     
 </body>
