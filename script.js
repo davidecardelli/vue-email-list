@@ -8,25 +8,20 @@ const app = Vue.createApp({
             numberOfEmail: 10
         }
     },
-
-    methods: {
-        
-        getEmailAddresses(numberOfEmail){
+    methods: {       
+        getRandomMail(numberOfEmail) {
             for(i=0; i < numberOfEmail; i++){
-                axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then( response => {
-                    const email = response.data.response;
+                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                .then( res => {
+                    const email = res.data.response;
                     this.emailList.push(email);
                 })
             }
-        },
-        
-
+        },     
     },
-
     mounted() {
-        this.getEmailAddresses(this.numberOfEmail);
-    },
-        
+        this.getRandomMail(this.numberOfEmail);
+    },       
  });
 
 app.mount('#root');
